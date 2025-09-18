@@ -1,0 +1,29 @@
+[[redirects]]
+  from = "/articles/*"
+  to = "/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/mentions-legales"
+  to = "/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/politique-confidentialite"
+  to = "/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/conditions-utilisation"
+  to = "/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/plan-site"
+  to = "/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200

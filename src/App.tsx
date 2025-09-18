@@ -93,7 +93,7 @@ function HomePage() {
       <Hero onJoinClick={openMembershipModal} onScrollToArticles={scrollToArticles} />
       
       {/* Articles Section */}
-      <section id="articles" className="py-20 scroll-mt-16">
+      <section id="articles" className="py-20" style={{ scrollMarginTop: "var(--heaven-header-height, 64px)" }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
@@ -130,7 +130,7 @@ function App() {
   return (
     <Router>
       <HeavenRadioHeader />
-      <div className="pt-16">
+      <div style={{ paddingTop: "var(--heaven-header-height, 64px)" }}>
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/articles/:id" element={<ArticlePage />} />
