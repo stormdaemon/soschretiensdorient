@@ -80,7 +80,7 @@ export function ArticlePage() {
           description: article.summary,
           type: 'article',
           url: canonicalUrl,
-          image: `${SITE_URL}/banner.png`,
+          image: `${SITE_URL}/logo.png`,
           siteName: "SOS Chrétiens d'Occident",
           locale: 'fr_FR',
         }}
@@ -88,7 +88,7 @@ export function ArticlePage() {
           card: 'summary_large_image',
           title: article.title,
           description: article.summary,
-          image: `${SITE_URL}/banner.png`,
+          image: `${SITE_URL}/logo.png`,
         }}
         structuredData={{
           '@context': 'https://schema.org',

@@ -52,7 +52,7 @@ function HomePage() {
             "Documenter la christianophobie, soutenir les communautés persécutées et mobiliser les catholiques en France et dans le monde.",
           type: 'website',
           url: getCanonicalUrl('/'),
-          image: `${SITE_URL}/banner.png`,
+          image: `${SITE_URL}/logo.png`,
           siteName: "SOS Chrétiens d'Occident",
           locale: 'fr_FR',
         }}
@@ -61,7 +61,7 @@ function HomePage() {
           title: "SOS Chrétiens d'Occident",
           description:
             "Association catholique engagée contre la christianophobie et pour la défense des chrétiens persécutés.",
-          image: `${SITE_URL}/banner.png`,
+          image: `${SITE_URL}/logo.png`,
         }}
         structuredData={[
           {

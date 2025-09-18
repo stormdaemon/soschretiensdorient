@@ -29,6 +29,6 @@
     /* Types */
     "types": ["vite/client", "@testing-library/jest-dom"]
   },
-  "include": ["src", "scripts"],
+  "include": ["src"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

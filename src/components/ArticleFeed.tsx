@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronUpIcon, ChevronDownIcon, ShareIcon } from '@heroicons/react/24/outline';
 import { Article } from '../types';
+import { SITE_URL } from '../lib/seo';
 
 interface ArticleFeedProps {
   articles: Article[];
@@ -81,9 +82,10 @@ export const ArticleFeed: React.FC<ArticleFeedProps> = ({ articles, className = 
 
   // --- Share
   const shareArticle = async (article: Article) => {
-    const shareUrl =
-      article.sourceUrl ||
-      (typeof window !== 'undefined' ? window.location.href : '');
+    const internalUrl = typeof window !== 'undefined'
+      ? `${window.location.origin}/articles/${article.id}`
+      : `${SITE_URL}/articles/${article.id}`;
+    const shareUrl = internalUrl;
 
     const navAny = navigator as any;
     if (navAny.share) {
