@@ -275,7 +275,7 @@ export const MembershipModal: React.FC<MembershipModalProps> = ({ isOpen, onClos
                       className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-red-500 focus:border-red-500 transition-colors ${
                         errors.phone ? 'border-red-300' : 'border-gray-300'
                       }`}
-                      placeholder="Ex. +33 6 12 34 56 78"
+                      placeholder="Ex. 01.71.68.15.38"
                     />
                     {errors.phone && (
                       <p className="text-red-600 text-sm mt-1">{errors.phone}</p>

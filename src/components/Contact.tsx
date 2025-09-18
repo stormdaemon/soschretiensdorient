@@ -103,8 +103,8 @@ export const Contact: React.FC = () => {
     {
       icon: PhoneIcon,
       title: 'Ligne solidarité',
-      value: '+33 1 23 45 67 89',
-      href: 'tel:+33123456789',
+      value: '01.71.68.15.38',
+      href: 'tel:0171681538',
     },
     {
       icon: MapPinIcon,
@@ -115,7 +115,7 @@ export const Contact: React.FC = () => {
   ];
 
   return (
-    <section id="contact" className="py-20 bg-gray-50">
+    <section id="contact" className="py-20 bg-gray-50 scroll-mt-28">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

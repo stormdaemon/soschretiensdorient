@@ -7,6 +7,7 @@ import { Contact } from './components/Contact';
 import { Footer } from './components/Footer';
 import { MembershipModal } from './components/MembershipModal';
 import { Seo } from './components/Seo';
+import { HeavenRadioHeader } from './components/HeavenRadioHeader';
 import { ArticlePage } from './pages/ArticlePage';
 import MentionsLegales from './pages/legal/MentionsLegales';
 import PolitiqueConfidentialite from './pages/legal/PolitiqueConfidentialite';
@@ -92,7 +93,11 @@ function HomePage() {
       <Hero onJoinClick={openMembershipModal} onScrollToArticles={scrollToArticles} />
       
       {/* Articles Section */}
-      <section id="articles" className="py-20">
+      <section
+        id="articles"
+        className="py-20"
+        style={{ scrollMarginTop: 'var(--heaven-header-height, 112px)' }}
+      >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
@@ -128,14 +133,17 @@ function HomePage() {
 function App() {
   return (
     <Router>
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/articles/:id" element={<ArticlePage />} />
-        <Route path="/mentions-legales" element={<MentionsLegales />} />
-        <Route path="/politique-confidentialite" element={<PolitiqueConfidentialite />} />
-        <Route path="/conditions-utilisation" element={<ConditionsUtilisation />} />
-        <Route path="/plan-site" element={<PlanSite />} />
-      </Routes>
+      <HeavenRadioHeader />
+      <div style={{ paddingTop: 'var(--heaven-header-height, 112px)' }}>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/articles/:id" element={<ArticlePage />} />
+          <Route path="/mentions-legales" element={<MentionsLegales />} />
+          <Route path="/politique-confidentialite" element={<PolitiqueConfidentialite />} />
+          <Route path="/conditions-utilisation" element={<ConditionsUtilisation />} />
+          <Route path="/plan-site" element={<PlanSite />} />
+        </Routes>
+      </div>
     </Router>
   );
 }

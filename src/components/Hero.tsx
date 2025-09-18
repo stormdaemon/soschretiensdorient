@@ -1,6 +1,8 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { ChevronDownIcon } from '@heroicons/react/24/outline';
+import bannerImage from '../assets/banner.png';
+import logoImage from '../assets/logo.png';
 
 interface HeroProps {
   onScrollToArticles?: () => void;
@@ -13,7 +15,7 @@ export const Hero: React.FC<HeroProps> = ({ onScrollToArticles, onJoinClick }) =
       {/* Background Image */}
       <div className="absolute inset-0">
         <img
-          src="/src/assets/banner.png"
+          src={bannerImage}
           alt="Volontaires de SOS Chrétiens d'Occident en mission"
           className="w-full h-full object-cover"
         />
@@ -30,7 +32,7 @@ export const Hero: React.FC<HeroProps> = ({ onScrollToArticles, onJoinClick }) =
           className="mb-8"
         >
           <img
-            src="/src/assets/logo.png"
+            src={logoImage}
             alt="SOS Chrétiens d'Occident"
             className="w-32 h-32 mx-auto mb-6 drop-shadow-2xl"
           />

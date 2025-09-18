@@ -39,8 +39,8 @@ export const Footer: React.FC = () => {
     },
     {
       icon: PhoneIcon,
-      text: '+33 1 23 45 67 89',
-      href: 'tel:+33123456789'
+      text: '01.71.68.15.38',
+      href: 'tel:0171681538'
     },
     {
       icon: MapPinIcon,
