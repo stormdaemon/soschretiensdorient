@@ -12,7 +12,6 @@ export default defineConfig({
   },
   build: {
     rollupOptions: {
-      treeshake: false,
       output: {
         manualChunks: {
           vendor: ['react', 'react-dom'],
