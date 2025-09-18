@@ -249,5 +249,3 @@ export const Membership: React.FC = () => {
     </section>
   );
 };
-
-export default Membership;
