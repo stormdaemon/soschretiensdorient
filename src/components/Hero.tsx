@@ -11,7 +11,7 @@ interface HeroProps {
 
 export const Hero: React.FC<HeroProps> = ({ onScrollToArticles, onJoinClick }) => {
   return (
-    <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <section id="hero" className="relative flex h-[calc(100vh-4rem)] items-center justify-center overflow-hidden">
       {/* Background Image */}
       <div className="absolute inset-0">
         <img

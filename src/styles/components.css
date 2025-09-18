@@ -1,0 +1,13 @@
+@layer utilities {
+  .safe-header-spacing {
+    padding-top: clamp(3.5rem, 6vw, 7.5rem);
+  }
+
+  .hero-safe {
+    min-height: calc(100vh - clamp(3.5rem, 6vw, 7.5rem));
+  }
+
+  .scroll-safe {
+    scroll-margin-top: clamp(3.5rem, 6vw, 7.5rem);
+  }
+}

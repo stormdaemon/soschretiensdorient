@@ -5,27 +5,10 @@ const STREAM_URL = 'https://play.radioking.io/heavenradio';
 
 export const HeavenRadioHeader: React.FC = () => {
   const audioRef = useRef<HTMLAudioElement | null>(null);
-  const headerRef = useRef<HTMLElement | null>(null);
   const [isPlaying, setIsPlaying] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [volume, setVolume] = useState(70);
   const [error, setError] = useState<string | null>(null);
-
-  useEffect(() => {
-    const updateHeight = () => {
-      const header = headerRef.current;
-      if (!header) return;
-      document.documentElement.style.setProperty('--heaven-header-height', `${header.offsetHeight}px`);
-    };
-
-    updateHeight();
-    window.addEventListener('resize', updateHeight);
-
-    return () => {
-      window.removeEventListener('resize', updateHeight);
-      document.documentElement.style.removeProperty('--heaven-header-height');
-    };
-  }, []);
 
   useEffect(() => {
     if (typeof Audio === 'undefined') return;
@@ -84,12 +67,9 @@ export const HeavenRadioHeader: React.FC = () => {
   };
 
   return (
-    <header
-      ref={headerRef}
-      className="fixed inset-x-0 top-0 z-50 border-b border-red-900/20 bg-gradient-to-r from-red-900 via-red-800 to-red-700 shadow-lg"
-    >
+    <header className="fixed inset-x-0 top-0 z-50 h-16 border-b border-red-900/20 bg-gradient-to-r from-red-900 via-red-800 to-red-700 shadow-lg">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col gap-2 py-3 sm:flex-row sm:items-center sm:justify-between">
+        <div className="flex flex-col gap-1 py-2 sm:flex-row sm:items-center sm:justify-between">
           <div className="flex flex-col sm:flex-row sm:items-center sm:gap-4 text-red-100">
             <div className="flex items-center gap-2">
               <span className="relative flex h-2 w-2">
