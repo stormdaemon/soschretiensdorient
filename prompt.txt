@@ -1,0 +1,100 @@
+Contexte & rôle
+Tu es un développeur expert React 19 + TypeScript, webdesign primé (awwwards) et copywriter senior. Tu livres un projet complet, production-ready.
+Tu documentes les meilleures pratiques React 19 appliquées dans docs/practices.md (rendering concurrent, transitions, Suspense, accessibility, perf).
+Tu intègres le logo fourni (/assets/logo.png) et l’image hero (/assets/banner.png) pour un design cohérent.
+Tu utilises obligatoirement les mots-clés présents dans data/keywords.txt (intégrés en SEO/semantique).
+
+Mission
+Livrer un site one-page pour “SOS Chrétiens d’Occident” (slug: soschretiensdoccident) avec les sections :
+	1.	Hero, 2) Articles, 3) Adhésion, 4) Contact.
+L’expérience globale doit être fluide, moderne, hautement lisible. Score Lighthouse ≥ 90 (Perf/Access/Best-practices/SEO).
+
+Contenu & données
+	•	Fichier data/articles.txt : l’outil lit tous les articles, réécrit chacun en résumé court (300–500 caractères, ton factuel, sans sensationnalisme), génère un data/articles.json (schema ci-dessous).
+	•	Fichier data/keywords.txt : injecte les mots-clés en <meta name="keywords"> + JSON-LD (WebSite + Organization) + sémantique H1/H2.
+	•	Image hero : assets/banner.png. Logo : assets/logo.png.
+
+UX Articles (style TikTok)
+	•	Affichage plein écran carte par carte, scroll vertical (ou swipe) pour passer à l’article suivant.
+	•	Virtualisation (seulement 3 cartes en mémoire).
+	•	Préchargement des 2 prochains.
+	•	CTA flottants : Adhérer, Partager, Sauvegarder.
+	•	Barre de progression (position N / total).
+	•	Temps de lecture estimé (calcul sur n caractères / 900 cpm).
+	•	Animation Framer Motion douce (stagger, fade/scale).
+	•	Shortcut clavier: ↑/↓ pour naviguer.
+
+Section Adhésion
+Plans (liens vides vers Stripe, attribut rel="nofollow noopener"):
+	•	Adhésion simple — 39 € — href=""
+	•	Adhésion soutien — 119 € — href=""
+	•	Adhésion mécénat — 450 € — href=""
+Inclure un tableau comparatif + FAQ courte.
+
+Pop-up d’adhésion (agressive mais propre)
+	•	S’affiche à l’ouverture et toutes les 180s (utiliser localStorage pour cooldown, ne pas réafficher si adhésion confirmée ou 3 dismiss successifs).
+	•	Focus trap, aria-modal="true", fermeture via ESC, bouton close visible.
+	•	Contenu court + CTA vers les 3 plans.
+
+Tech & stack
+	•	Build: Vite, React 19, TypeScript, Tailwind CSS, Framer Motion, shadcn/ui.
+	•	Routing: single page (ancres + smooth scroll).
+	•	Données: data/articles.json généré au runtime via ingestion de articles.txt (utiliser un script Node pour la transformation).
+	•	Tests: Vitest + Testing Library (au moins tests du composant ArticleFeed et de la modal).
+	•	Qualité: ESLint (react-hooks, a11y), Prettier, Husky pre-commit.
+	•	Perf: images optimisées (<img loading="lazy">, srcset, compression), CLS < 0.1, LCP < 2.5s.
+	•	SEO: <title>, meta description, OpenGraph, Twitter Card, JSON-LD (Organization + WebSite).
+	•	Accessibilité: contrastes AA, labelling, navigation clavier.
+
+Structure projet (exigée) :
+
+/soschretiensdoccident
+  /src
+    /components (Hero.tsx, ArticleCard.tsx, ArticleFeed.tsx, Plans.tsx, ContactForm.tsx, StickyCTA.tsx, MembershipModal.tsx)
+    /sections (HeroSection.tsx, ArticlesSection.tsx, MembershipSection.tsx, ContactSection.tsx)
+    /lib (format.ts, seo.ts, storage.ts)
+    /styles (globals.css, tokens.css)
+    /assets (banner.png, logo.png)
+    /data (articles.json ← généré)
+    App.tsx, main.tsx
+  /scripts
+    ingest-articles.ts (lit data/articles.txt → résumés → data/articles.json)
+  /data
+    articles.txt
+    keywords.txt
+  /docs
+    practices.md
+  index.html
+  package.json
+  README.md
+  vite.config.ts
+  tsconfig.json
+
+  Schéma articles.json
+
+  [
+  {
+    "id": "slug-unique",
+    "title": "Titre concis",
+    "summary": "Résumé 300-500 caractères réécrit.",
+    "sourceUrl": "https://...",
+    "publishedAt": "2025-09-12",
+    "tags": ["France","profanation","église"],
+    "image": "/assets/articles/slug.jpg"
+  }
+]
+
+Critères d’acceptation
+	•	Build OK (npm run dev, npm run build).
+	•	docs/practices.md rédigé.
+	•	data/articles.json généré automatiquement depuis articles.txt.
+	•	Navigation TikTok-like fluide (wheel, touch, clavier) avec virtualisation.
+	•	Pop-up conforme (ouverture + toutes les 180s, cooldown).
+	•	Lighthouse ≥ 90 (tous onglets) sur build prod.
+	•	Accessibilité clavier + labels ARIA.
+	•	SEO: balises + JSON-LD valides.
+
+    Bonus : mini check-list keywords
+	•	Injecter keywords.txt dans <meta name="keywords"> et parse pour parseur sémantique (h2/h3, alt, FAQ).
+	•	Ajouter robots.txt + sitemap.xml.
+	•	Canonical URL.
