@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { Hero } from './components/Hero';
 import { ArticleFeed } from './components/ArticleFeed';
+import { LawyerSection } from './components/LawyerSection';
 import { Membership } from './components/Membership';
 import { Contact } from './components/Contact';
 import { Footer } from './components/Footer';
@@ -100,13 +101,16 @@ function HomePage() {
               Actualités de la défense des chrétiens
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-              Enquêtes, reportages et analyses exclusives sur la christianophobie, 
+              Enquêtes, reportages et analyses exclusives sur la christianophobie,
               la liberté religieuse et l'engagement des communautés catholiques.
             </p>
           </div>
           <ArticleFeed articles={articlesData} />
         </div>
       </section>
+
+      {/* Lawyer Section */}
+      <LawyerSection />
 
       {/* Membership Section */}
       <Membership />
