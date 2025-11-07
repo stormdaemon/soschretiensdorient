@@ -1,4 +1,4 @@
-import { Scale } from 'lucide-react';
+import { ScaleIcon } from '@heroicons/react/24/outline';
 
 export function LawyerSection() {
   return (
@@ -6,7 +6,7 @@ export function LawyerSection() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
           <div className="inline-flex items-center justify-center w-16 h-16 bg-red-100 rounded-full mb-6">
-            <Scale className="w-8 h-8 text-red-600" />
+            <ScaleIcon className="w-8 h-8 text-red-600" />
           </div>
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
             Notre Conseil Juridique
