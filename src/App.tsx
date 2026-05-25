@@ -9,6 +9,7 @@ import { Footer } from './components/Footer';
 import { MembershipModal } from './components/MembershipModal';
 import { Seo } from './components/Seo';
 import { HeavenRadioHeader } from './components/HeavenRadioHeader';
+import { ChristianEcosystemMenu } from './components/ChristianEcosystemMenu';
 import { ArticlePage } from './pages/ArticlePage';
 import MentionsLegales from './pages/legal/MentionsLegales';
 import PolitiqueConfidentialite from './pages/legal/PolitiqueConfidentialite';
@@ -144,6 +145,7 @@ function App() {
           <Route path="/plan-site" element={<PlanSite />} />
         </Routes>
       </div>
+      <ChristianEcosystemMenu />
     </Router>
   );
 }
